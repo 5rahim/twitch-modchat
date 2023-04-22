@@ -1,0 +1,31 @@
+@import "Colors";
+
+.button {
+	border: 3px transparent solid;
+	padding: .3rem .5rem;
+	border-radius: .2rem;
+	font-weight: bold;
+	background-color: darken($primary-color, 10);
+	color: #fff;
+	outline: 0;
+	transition: all .15s linear;
+	cursor: pointer;
+	&:hover {
+		background-color: lighten($primary-color, 5);
+	}
+	&:active {
+		background-color: darken($primary-color, 20);
+	}
+	&.button-danger {
+		background-color: $red-color;
+		&:hover {
+			background-color: lighten($red-color, 5);
+		}
+		&:active {
+			background-color: darken($red-color, 20);
+		}
+	}
+	&.button-small {
+		padding: .1rem .3rem;
+	}
+}

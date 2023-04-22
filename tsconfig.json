@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "target": "ES5",
+    "allowJs": true,
+//    "module": "commonjs",
+    "module": "esnext",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "paths": {
+//      "@zustandTest/*": [
+//        "src/containers/tests/zustand/*"
+//      ],
+//      "@recoilTest/*": [
+//        "src/containers/tests/recoil/*"
+//      ],
+      "*": [
+        "node_modules/*"
+      ]
+    },
+    "jsx": "react"
+  },
+  "exclude": [
+    ".webpack/renderer/main_window/index.js",
+    ".webpack/renderer/main_window/index.html",
+    ".webpack/main/index.js",
+    ".webpack/**/*",
+  ],
+  "include": [
+    "src/**/*"
+  ]
+}

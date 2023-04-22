@@ -1,0 +1,38 @@
+$background-color: #121212;
+$stream-info-color: lighten($background-color, 5);
+$lighter-background-color: lighten($background-color, 5);
+$primary-color: #3296db; //#ae44f1;
+$gray-color: #565656;
+$red-color: #c43a3a;
+$orange-color: #CF792F;
+$green-color: #43aa43;
+$purple-color: #7743aa;
+$pink-color: #aa438b;
+
+.hover-green-bg {
+	&:hover {
+		background-color: $green-color !important;
+	}
+}
+
+.purple-bg {
+	background-color: $purple-color !important;
+}
+
+.hover-purple-bg {
+	&:hover {
+		background-color: $purple-color !important;
+	}
+}
+
+.hover-background-color-bg {
+	&:hover {
+		background-color: $background-color !important;
+	}
+}
+
+.hover-pink-bg {
+	&:hover {
+		background-color: $pink-color !important;
+	}
+}

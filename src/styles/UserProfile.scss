@@ -1,0 +1,314 @@
+@import "Colors";
+
+.user-profile {
+	font-family: "Segoe UI", sans-serif;
+	position: absolute;
+	width: 100%;
+	z-index: 8;
+	user-select: none;
+	top: 35px;
+	
+	&.isPopup {
+		color: #fff;
+		top: 0;
+		position: relative;
+		z-index: 99;
+		background-color: $background-color;
+		overflow: hidden;
+		
+		.user-profile-info {
+			height: 120px;
+		}
+		
+		.user-profile-drag {
+			width: 100%;
+			height: 25px;
+			background-color: #22232b;
+			-webkit-app-region: drag;
+			cursor: pointer;
+		}
+		
+		.user-profile-actions {
+			
+			ul {
+				font-size: 13px;
+			}
+		}
+	}
+	
+	.user-profile-close {
+		position: absolute;
+		z-index: 9;
+		right: 0;
+		display: flex;
+		height: 1.8rem;
+		width: 1.8rem;
+		justify-content: center;
+		align-items: center;
+		background-color: $red-color;
+		transition: all .15s linear;
+		
+		&:hover {
+			background-color: lighten($red-color, 6);
+		}
+	}
+	
+	.user-profile-bookmarks {
+		height: 30px;
+		background-color: $background-color;
+		border-top: 1px $lighter-background-color solid;
+		ul {
+			display: flex;
+			height: 30px;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			li {
+				display: flex;
+				height: 30px;
+				align-items: center;
+				padding: 0 .5rem;
+				font-size: 13px;
+				border-right: 1px #292929 solid;
+				color: #797979;
+				font-weight: 600;
+				cursor: pointer;
+				max-width: 100px;
+				overflow: hidden;
+				text-align: center;
+				&.active {
+					color: #fff;
+				}
+				&:hover {
+					color: #fff;
+					background-color: lighten($background-color, 3);
+				}
+			}
+		}
+	}
+	
+	.user-profile-bookmark {
+		position: absolute;
+		z-index: 9;
+		right: 2rem;
+		display: flex;
+		height: 1.8rem;
+		width: 1.8rem;
+		justify-content: center;
+		align-items: center;
+		//background-color: $red-color;
+		transition: all .15s linear;
+		cursor: pointer;
+		
+		&:hover {
+			color: #cc8619;
+		}
+		
+		&.active {
+			color: #cc8619;
+		}
+	}
+	
+	.user-profile-content {
+		background-color: lighten($lighter-background-color, 5);
+		width: 100%;
+		display: grid;
+		position: relative;
+		
+		.user-profile-info {
+			display: flex;
+			//height: 100.8px;
+			
+			.user-profile-picture-wrapper {
+				padding: 1rem;
+				
+				@media screen and (max-width: 397px) {
+					.user-profile-picture {
+						height: 50px !important;
+						width: 50px !important;
+					}
+				}
+				
+				.user-profile-picture {
+					height: 60px;
+					width: 60px;
+					user-drag: none;
+					user-select: none;
+					transition: all .15s linear;
+					
+					&:hover {
+						transform: scale(1.1);
+					}
+				}
+				
+			}
+			
+			@media screen and (max-width: 397px) {
+				.user-profile-meta {
+					font-size: 12px !important;
+				}
+			}
+			
+			@media screen and (max-width: 347px) {
+				.user-profile-meta {
+					font-size: 10px !important;
+				}
+			}
+			
+			.user-profile-meta {
+				padding: .5rem;
+				width: 100%;
+				font-size: .9rem;
+				
+				ul {
+					list-style: none;
+					padding: 0;
+					margin: 0;
+					
+					li {
+						&.user-profile-name {
+							cursor: pointer;
+							display: inline-block;
+							transition: all .1s linear;
+							&:hover {
+								color: #565656;
+							}
+						}
+						
+						&.user-profile-tips {
+							margin-top: .3rem;
+							ul {
+								display: flex;
+								font-size: 12.5px;
+								li {
+									padding: .005rem .3rem;
+									border-radius: .3rem;
+									background-color: $red-color;
+									margin-right: .3rem;
+									&.warning {
+										background-color: $orange-color;
+									}
+								}
+							}
+						}
+					}
+				}
+				
+			}
+			
+			.user-profile-head-actions {
+				width: 90px;
+				display: flex;
+				align-items: flex-end;
+				margin-bottom: 10px;
+				
+				ul {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					
+					li {
+						width: 2rem;
+						height: 2rem;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						background-color: lighten($background-color, 5);
+						margin-right: .2rem;
+						transition: all .15s linear;
+						
+						&.unban {
+							color: $green-color;
+							width: 1.5rem;
+							height: 1.5rem;
+						}
+						
+						&:hover {
+							background-color: $gray-color;
+						}
+						
+						&:active {
+							background-color: lighten($gray-color, 15);
+						}
+					}
+				}
+			}
+			
+		}
+		
+		.user-profile-actions {
+			
+			.user-profile-actions-box {
+				background-color: lighten($background-color, 5);
+				
+				.user-profile-actions-content {
+					border-top: 1px lighten($background-color, 12) solid;
+					
+					ul {
+						max-width: 35rem;
+						list-style: none;
+						margin: 0;
+						padding: 0;
+						display: flex;
+						justify-content: space-evenly;
+						flex-flow: wrap-reverse;
+						
+						li {
+							height: 2rem;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							flex-basis: 3rem;
+							flex-grow: 1;
+							transition: all .1s linear;
+							border-right: 1px lighten($background-color, 12) solid;
+							border-bottom: 1px lighten($background-color, 12) solid;
+							
+							&:hover {
+								background-color: $gray-color;
+							}
+							
+							&:active {
+								background-color: lighten($gray-color, 15);
+							}
+						}
+					}
+					
+				}
+				
+			}
+		}
+		
+		.user-profile-logs {
+			
+			.user-profile-logs-box {
+				padding: .5rem;
+				
+				.user-profile-logs-content {
+					background-color: $background-color;
+					height: 200px;
+					width: 100%;
+				}
+				
+			}
+			
+			.user-profile-logs-button {
+				width: 100%;
+				background-color: rgba(0, 0, 0, 0.2);
+				display: flex;
+				justify-content: center;
+				padding: .15rem 0;
+				transition: all .15s linear;
+				cursor: pointer;
+				
+				&:hover {
+					background-color: $gray-color;
+				}
+			}
+		}
+		
+	}
+}

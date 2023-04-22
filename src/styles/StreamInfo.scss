@@ -1,0 +1,253 @@
+@import "Colors";
+@import "Variables";
+
+.bookmarks {
+	border-radius: .3rem;
+	padding: .3rem;
+	position: absolute;
+	top: $stream-info-height;
+	right: 0;
+	top: $stream-info-height;
+	background-color: $lighter-background-color;
+	font-size: 1rem;
+	min-width: 250px;
+	z-index: 2;
+	
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		z-index: 1;
+		background-color: $background-color;
+		border-radius: .3rem;
+		overflow: hidden;
+		
+		li {
+			list-style: none;
+			padding: .4rem .5rem;
+			transition: all .15s linear;
+			display: flex;
+			z-index: 3;
+			font-size: 13px;
+			&:hover {
+				background-color: lighten($lighter-background-color, 5);
+			}
+		}
+	}
+}
+
+.choice-dropdown {
+	padding: .5rem .5rem .5rem .5rem;
+	position: absolute;
+	top: $stream-info-height;
+	background-color: #000;
+	font-size: 1rem;
+	min-width: 350px;
+	right: 0;
+	z-index: 2;
+	
+	.choice-title {
+		text-align: center;
+		//color: #63ff68;
+		font-size: 16px;
+		margin: -.5rem -.5rem .5rem -.5rem;
+		background-color: #1f1f1f;
+		padding: .5rem;
+		font-weight: bold;
+	}
+	
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		z-index: 1;
+		
+		li.choice-dropdown-item {
+			padding: 0 .5rem;
+			display: flex;
+			align-items: center;
+			border-radius: .3rem;
+			background-color: $lighter-background-color;
+			margin-bottom: .5rem;
+			font-size: 14px;
+			height: 30px;
+			cursor: pointer;
+			transition: all .15s linear;
+			
+			&:hover {
+				background-color: $gray-color;
+			}
+		}
+	}
+}
+
+.stream-info {
+	height: $stream-info-height;
+	width: 100%;
+	display: flex;
+	align-content: center;
+	padding: 0 10px;
+	position: relative;
+	justify-content: space-between;
+	align-items: center;
+	background-color: $lighter-background-color;
+	z-index: 999;
+	box-sizing: border-box;
+	
+	span.live-signal {
+		width: 6px;
+		height: 6px;
+		background-color: #e53838;
+		border-radius: 50%;
+		display: inline-block;
+		margin-bottom: 1px;
+		margin-left: 2px;
+		margin-right: 6px;
+	}
+	
+	.stream-options {
+		height: 33px;
+		display: flex;
+		position: absolute;
+		right: 0;
+		background-color: $lighter-background-color;
+		
+		.stream-option {
+			position: relative;
+			
+			.stream-option-button {
+				padding: 0 .5rem;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				height: 100%;
+				line-height: -2px;
+				transition: all .15s linear;
+				font-size: 1.25rem;
+				right: 0;
+				
+				&:hover {
+					background-color: lighten($background-color, 20);
+				}
+				
+				&:active {
+					background-color: lighten($background-color, 40);
+				}
+				
+			}
+			
+			.stream-option-dropdown {
+				border-radius: .3rem;
+				padding: .5rem .5rem 0rem .5rem;
+				position: absolute;
+				top: $stream-info-height;
+				right: 0;
+				top: $stream-info-height;
+				background-color: $lighter-background-color;
+				font-size: 1rem;
+				min-width: 250px;
+				z-index: 2;
+				
+				ul {
+					padding: 0;
+					margin: 0;
+					list-style: none;
+					z-index: 1;
+					
+					li.stream-option-item {
+						list-style: none;
+						padding: .2rem .5rem;
+						transition: all .15s linear;
+						display: flex;
+						z-index: 3;
+						border-radius: .3rem;
+						
+						&:hover {
+							background-color: lighten($background-color, 10);
+						}
+						
+						&:active {
+							background-color: $gray-color;
+						}
+					}
+					
+					li.stream-option-info {
+						padding: 0 .5rem;
+						display: flex;
+						align-items: center;
+						border-radius: .3rem;
+						background-color: darken($gray-color, 10);
+						margin-bottom: .5rem;
+						font-size: 14px;
+						height: 25px;
+						cursor: pointer;
+						transition: all .15s linear;
+						
+						&:hover {
+							background-color: $gray-color;
+						}
+						
+						svg {
+							font-size: 20px;
+							margin-right: .3rem;
+						}
+						
+						&.follow-mode {
+							&.active {
+								background-color: $primary-color;
+								
+								&:hover {
+									background-color: darken($primary-color, 10);
+								}
+							}
+						}
+						
+						
+						&.slow-mode {
+							&.active {
+								background-color: $red-color;
+								
+								&:hover {
+									background-color: darken($red-color, 10);
+								}
+							}
+						}
+						
+						&.sub-mode {
+							&.active {
+								background-color: $orange-color;
+								
+								&:hover {
+									background-color: darken($orange-color, 10);
+								}
+							}
+						}
+						
+						&.emote-mode {
+							&.active {
+								background-color: $purple-color;
+								
+								&:hover {
+									background-color: darken($purple-color, 10);
+								}
+							}
+						}
+						
+						&.r9k-mode {
+							&.active {
+								background-color: $pink-color;
+								
+								&:hover {
+									background-color: darken($pink-color, 10);
+								}
+							}
+						}
+					}
+				}
+			}
+			
+		}
+		
+	}
+	
+}

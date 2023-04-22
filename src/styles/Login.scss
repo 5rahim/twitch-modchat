@@ -1,0 +1,22 @@
+@import 'Colors';
+@import "Variables";
+
+.login {
+	display: grid;
+	align-content: center;
+	justify-content: center;
+	width: 100%;
+	height: calc(100vh - 30px);
+	
+	.login-box {
+		width: calc(100vw - 5rem);
+		max-width: 25rem;
+		//border: 3px darken($gray-color, 20) solid;
+		//padding: 2rem;
+		border-radius: .3rem;
+		h1, h2 {
+			margin: 0;
+			padding: 0;
+		}
+	}
+}

@@ -1,0 +1,327 @@
+@import "Colors";
+@import "Variables";
+
+.settings-wrapper {
+	position: fixed;
+	top: 65px;
+	height: calc(100% - 65px);
+	width: 100%;
+	transition: all .15s ease-out;
+	opacity: 0;
+	z-index: 0;
+	
+	&.opened {
+		z-index: 999;
+		opacity: 1;
+	}
+	
+	.settings {
+		display: block;
+		width: 100%;
+		height: 100%;
+		//backdrop-filter: blur(5px);
+		//background-color: rgba(darken($lighter-background-color, 5), 0.9);
+		background-color: darken($lighter-background-color, 5);
+		position: relative;
+		
+		.settings-close {
+			width: 25px;
+			height: 25px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #fff;
+			font-size: 14px;
+			background-color: $red-color;
+			position: absolute;
+			top: 0;
+			right: 0;
+			cursor: pointer;
+			z-index: 1000;
+			transition: all .15s linear;
+			
+			&:hover {
+				background-color: lighten($red-color, 15);
+			}
+		}
+		
+		.settings-content {
+			height: 100%;
+			
+			h2 {
+				display: inline-block;
+				margin: 1rem;
+			}
+			
+			h4 {
+				display: inline-block;
+				margin-top: 0;
+				margin-bottom: 1rem;
+			}
+			
+			.divider {
+				height: 1px;
+				width: 100%;
+				margin: 1rem 0;
+				background-color: $lighter-background-color;
+			}
+			
+			.settings-sections {
+				display: flex;
+				width: 100%;
+				height: 100%;
+				flex-direction: row;
+				
+				.settings-section-categories {
+					flex-basis: 170px;
+					
+					ul {
+						padding: 0;
+						margin: 0;
+						width: 100%;
+						
+						li {
+							padding-left: .6rem;
+							height: 40px;
+							display: flex;
+							align-items: center;
+							text-align: center;
+							width: 100%;
+							color: darken(#fff, 60);
+							outline: 0;
+							transition: all .1s linear;
+							cursor: pointer;
+							
+							&:hover {
+								background-color: darken($lighter-background-color, 3);
+							}
+							
+							&.react-tabs__tab--selected {
+								font-weight: bold;
+								color: $primary-color;
+								background-color: $lighter-background-color;
+								
+								svg {
+									color: #fff;
+								}
+							}
+							
+							svg {
+								font-size: 18px;
+								margin-right: .3rem;
+							}
+						}
+					}
+				}
+				
+				.settings-section-content {
+					flex-basis: 100%;
+					border-left: 2px $lighter-background-color solid;
+					padding: 0 .5rem .5rem .5rem;
+					overflow: auto;
+					
+					.settings-subsection {
+						
+						.settings-subsection-categories {
+							margin-bottom: 1rem;
+							
+							ul {
+								padding: 0;
+								margin: 0;
+								width: 100%;
+								display: flex;
+								border-bottom: 2px $lighter-background-color solid;
+								
+								li {
+									padding-left: .6rem;
+									height: 40px;
+									display: flex;
+									align-items: center;
+									text-align: center;
+									width: 100%;
+									color: darken(#fff, 60);
+									outline: 0;
+									transition: all .1s linear;
+									cursor: pointer;
+									
+									svg {
+										margin-top: .1rem;
+										font-size: 16px;
+										margin-right: .3rem;
+									}
+									
+									&:hover {
+										background-color: darken($lighter-background-color, 3);
+									}
+									
+									&.react-tabs__tab--selected {
+										font-weight: bold;
+										color: $primary-color;
+										background-color: $lighter-background-color;
+									}
+								}
+							}
+						}
+						
+					}
+					
+				}
+			}
+		}
+		
+	}
+	
+}
+
+.setting-cell {
+	position: relative;
+	border-bottom: 2px $lighter-background-color solid;
+	
+	&:hover {
+		background-color: darken($gray-color, 10);
+		
+		.setting-cell-name {
+			background-color: darken($gray-color, 10) !important;
+		}
+	}
+	
+	.setting-cell-meta {
+		height: 35px;
+		display: flex;
+		align-items: center;
+		padding: 0 .5rem;
+		justify-content: space-between;
+		overflow: hidden;
+		cursor: pointer;
+		z-index: 1;
+		
+		.setting-cell-name {
+			white-space: pre;
+		}
+	}
+	
+	.setting-cell-status {
+		position: absolute;
+		right: 0;
+		top: .2rem;
+		background-color: $background-color;
+		padding: .3rem .3rem .3rem 0;
+		border-radius: .2rem;
+		margin-right: .2rem;
+		transition: all .15s ease-in-out;
+		//z-index: 2;
+		
+		&:hover{
+			li.setting-cell-trash, div.setting-cell-edit {
+				width: auto;
+				opacity: 1;
+			}
+			li.setting-cell-trash {
+				margin-left: .5rem;
+			}
+		}
+		
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			display: flex;
+			align-items: center;
+			height: 100%;
+			font-size: 18px;
+			
+			li {
+				display: inline-flex;
+				margin-left: .5rem;
+				color: $gray-color;
+				transition: all .1s linear;
+				
+				&:hover {
+					transform: scale(1.2);
+				}
+				
+				&:active {
+					transform: scale(1);
+				}
+				
+				&.setting-cell-color {
+					width: 15px;
+					height: 15px;
+					border-radius: .2rem;
+					background-color: #43aa43;
+				}
+				
+				&.active {
+					color: #fff;
+				}
+				
+				&.setting-cell-trash {
+					transition: all .1s linear;
+					width: 0;
+					opacity: 0;
+					margin-left: 0rem;
+					&:hover {
+						color: $red-color;
+					}
+				}
+			}
+			
+			.setting-cell-color-picker {
+				position: absolute;
+				top: 36px;
+				z-index: 999;
+				right: 47px;
+			}
+			
+		}
+		
+		
+	}
+	
+	.setting-cell-nuke-details {
+		position: absolute;
+		right: 3.8rem;
+		top: .25rem;
+		display: inline-flex;
+		
+		ul {
+			list-style: none;
+			margin: 0;
+			display: flex;
+			height: 26px;
+			align-items: center;
+			background-color: $background-color;
+			padding: .3rem 0 .3rem .8rem;
+			border-radius: .1rem;
+			
+			li {
+				margin-right: .8rem;
+				&:hover {
+					color: $primary-color;
+					transform: scale(1.2);
+					font-weight: bold;
+				}
+			}
+		}
+	}
+	
+	div.setting-cell-edit {
+		display: inline-flex;
+		transition: all .1s linear;
+		width: 0;
+		opacity: 0;
+		margin-left: 0rem;
+		&:hover {
+			transform: scale(1);
+		}
+		&:hover {
+			color: $green-color;
+		}
+	}
+	
+	.setting-cell-action {
+		padding: .5rem;
+		
+		
+	}
+}

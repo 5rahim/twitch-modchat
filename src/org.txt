@@ -1,0 +1,28 @@
+
+// ModChat.tsx
+const showPopupProfile = useSetting('showPopupProfile')
+
+// UseSetting.hook.tsx
+function useSetting(id: string)
+	const setting = useRecoilValue(settingById(id))
+
+// SettingStore
+// - SettingAtoms.tsx
+
+settingIdsState = atom({
+    key: 'settingsIds',
+    default: []
+})
+
+settingStateFamily = atomFamily({
+    key: 'settingStateFamily',
+    default: null
+})
+
+// - SettingSelectors.tsx
+settingByIdSelector = selectorFamily({
+    key: 'settingByIdSelector',
+    get: (id) => () => {
+
+    }
+})

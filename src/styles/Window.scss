@@ -1,0 +1,11 @@
+@import "Colors";
+
+.window-wrapper {
+	font-family: "Nunito Sans", sans-serif;
+	width: 100vw;
+	height: 100vh;
+	display: block;
+	background-color: $background-color;
+	color: #fff;
+	overflow: hidden;
+}

@@ -1,0 +1,8 @@
+.copy-button {
+	display: inline-block;
+	opacity: .5;
+	cursor: pointer;
+	&:hover {
+		opacity: 1;
+	}
+}
